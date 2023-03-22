@@ -2,6 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from config import config# we’ll discuss the config file next
 from backend.db import db
+from flask_jwt_extended import JWTManager
 
 
 
@@ -9,10 +10,12 @@ def create_app(config_name):
     app = Flask(__name__)
     app.config.from_object(config[config_name])
     config[config_name].init_app(app)
+    app.config.JWT_SECRET_KEY="super secret key"
     app.config.from_pyfile("../config.py")
 
 
     db.init_app(app)
+    JWTManager(app)
 
     from backend.users.controller import users
     # from backend.categories.controller import categories

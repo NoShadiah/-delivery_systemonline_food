@@ -11,7 +11,7 @@ from flask_jwt_extended import JWTManager
 
 app = create_app('development')
 migrate = Migrate(app, db)
-jwt = JWTManager(app)
+
 
 
 @app.shell_context_processor

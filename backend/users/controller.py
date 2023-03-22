@@ -17,21 +17,24 @@ def login():
 
     if not email or not user_password:
         return jsonify({"message": "All fields are required"})
-    
-  
-    
     if user:
-      is_password_correct=check_password_hash(user.password, user_password)
-      if is_password_correct:
-          access_token = create_access_token(identity=user.email) #to make JSON Web Tokens for authentication
-          return jsonify({
-           "message":"Successfully logged in a user",
-          "access_token":access_token,
-          "user":user}) #to access a token
-      else:
-        return jsonify({"message": "Invalid password"})
+        
+        def password():
+            u_password = user_password
+        
+            password_hashed = user.password
+            validate=check_password_hash(password_hashed, u_password)
+            if validate:
+                access_token = create_access_token(identity=user.id) #to make JSON Web Tokens for authentication
+                return {"message":"you successfully logged in", "access token":access_token}
+            else:
+                return "Provided an incorrect password"
+        return password()
     else:
-        return jsonify({"message": "email address doesn't exist"})
+        return "email does not exist"   
+        
+
+        
     
 
 #get all users

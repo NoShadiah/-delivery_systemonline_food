@@ -21,14 +21,14 @@ def all_regions():
 
 
 #creating regions
-# @jwt_required()
+@jwt_required()
 @regions.route('/create', methods= ['POST'])
 def create_new_region():
 
     data = request.get_json()
     name = data['name']
-    # created_by =  get_jwt_identity()
-    created_by = data['created_by']
+    created_by =  get_jwt_identity()
+    # created_by = data['created_by']
       
   
     #validations
@@ -51,6 +51,7 @@ def create_new_region():
     
 
 #get,edit and delete region by id
+@jwt_required()
 @regions.route('/region/<int:id>', methods=['GET', 'PUT', 'DELETE'])
 def handle_region(id):
     region = Region.query.get_or_404(id)
