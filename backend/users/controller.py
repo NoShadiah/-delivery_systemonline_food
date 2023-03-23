@@ -5,11 +5,13 @@ from backend.db import db
 from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import JWTManager, create_access_token, create_refresh_token
+from flasgger import swag_from
 
 users = Blueprint('users', __name__, url_prefix='/users')
 
 #user login
 @users.route("/login", methods=["POST"])
+@swag_from('../documentation/docs/user/login.yaml')
 def login():
     email = request.json.get("email")
     user_password = request.json.get("password")

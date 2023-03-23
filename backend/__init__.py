@@ -5,7 +5,7 @@ from backend.db import db
 from flask_jwt_extended import JWTManager
 from flask_cors import CORS
 from flasgger import Swagger, swag_from
-from config.swagger import template, swagger_config
+from backend.documentation.config.swagger import template, swagger_config
 
 
 
