@@ -51,8 +51,9 @@ def create_new_region():
     
 
 #get,edit and delete region by id
-@jwt_required()
+
 @regions.route('/region/<int:id>', methods=['GET', 'PUT', 'DELETE'])
+@jwt_required()
 def handle_region(id):
     region = Region.query.get_or_404(id)
 
