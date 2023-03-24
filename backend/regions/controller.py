@@ -6,7 +6,7 @@ from datetime import datetime
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 
-regions = Blueprint('regions', __name__, url_prefix='/regions')
+regions = Blueprint('regions', __name__, url_prefix='api/v1/regions')
 
 #get all regions
 @regions.route("/all")

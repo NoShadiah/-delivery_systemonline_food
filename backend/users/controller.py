@@ -7,7 +7,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import JWTManager, create_access_token, create_refresh_token
 from flasgger import swag_from
 
-users = Blueprint('users', __name__, url_prefix='/users')
+users = Blueprint('users', __name__, url_prefix='api/v1/users')
 
 #user login
 @users.route("/login", methods=["POST"])

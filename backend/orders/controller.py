@@ -6,7 +6,7 @@ from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 
 
-orders = Blueprint('orders', __name__, url_prefix='/orders')
+orders = Blueprint('orders', __name__, url_prefix='api/v1/orders')
 
 #get all orders
 @orders.route("/all")
