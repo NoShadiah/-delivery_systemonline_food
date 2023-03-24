@@ -5,7 +5,7 @@ import datetime
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 
-addresses = Blueprint('addresses', __name__, url_prefix='/addresses')
+addresses = Blueprint('addresses', __name__, url_prefix='api/v1/addresses')
 
 #get all addresses
 @addresses.route("/all")

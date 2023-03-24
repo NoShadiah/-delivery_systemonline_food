@@ -1,7 +1,6 @@
 from flask import  jsonify, request, Blueprint
 from backend.orders.model import Order
 from backend.db import db
-import datetime
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 
